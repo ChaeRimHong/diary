@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<form action="join_in" method="post">
+<form action="join_in" method="post" modelAttribute="mdto" th:object="${mdto}">
     <div class="wrap">
         <div class="login" style="background-color:#fff7e6;">
             <h2>Join-in</h2>
@@ -24,24 +24,138 @@
 
             <div class="login_id">
                 <div class="join">
+                    <table>
+                        <tr>
+                            <th><h4>아이디</h4></th>
+                            <td>
+                                <input type="text" name="id" id="id" placeholder="ID" th:field="*{id}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <div class="joinerror">
+                                    &emsp;
+                                    <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><h4>비밀번호</h4></th>
+                            <td>
+                                <input type="password" name="pw" id="pw" placeholder="PW" th:field="*{pw}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <div class="joinerror">
+                                    &emsp;
+                                    <p th:if="${#fields.hasErrors('pw')}" th:errors="*{pw}"></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><h4>이름</h4></th>
+                            <td>
+                                <input type="text" name="name" id="name" placeholder="이름" th:field="*{name}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <div class="joinerror">
+                                    &emsp;
+                                    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><h4>주소</h4></th>
+                            <td>
+                                <input type="text" name="address" id="address" placeholder="ex) 경기도 수원시 팔달구" th:field="*{address}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <div class="joinerror">
+                                    &emsp;
+                                    <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><h4>핸드폰</h4></th>
+                            <td>
+                                <input type="text" name="phone" id="phone" placeholder="ex) 010-0000-0000" th:field="*{phone}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <div class="joinerror">
+                                    &emsp;
+                                    <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><h4>이메일</h4></th>
+                            <td>
+                                <input type="email" name="email" id="email" placeholder="ex) aaa@naver.com" th:field="*{email}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <div class="joinerror">
+                                    &emsp;
+                                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--
+                    <div class="join">
                     <h4>아이디 &emsp;&emsp;</h4>
-                    <input type="email" name="id" id="id" placeholder="">
+                    <input type="text" name="id" id="id" placeholder="ID" th:field="*{id}">
+                    <br>
+                    <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
                 </div>
                 <div class="join">
                     <h4>비밀번호</h4>
-                    <input type="email" name="pw" id="pw" placeholder="">
+                    <input type="password" name="pw" id="pw" placeholder="PW" th:field="*{pw}">
+                    <div class="row">
+                        <div class="joinerror">
+                            <p th:if="${#fields.hasErrors('pw')}" th:errors="*{pw}"></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="join">
-                    <h4>이메일</h4>
-                    <input type="email" name="email" id="email" placeholder="ex) aaa@naver.com">
+                    <h4>이름 &emsp;&emsp;</h4>
+                    <input type="text" name="name" id="name" placeholder="이름" th:field="*{name}">
+                    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
                 </div>
                 <div class="join">
                     <h4>주소</h4>
-                    <input type="email" name="address" id="address" placeholder="ex) 경기도 수원시 팔달구">
+                    <input type="text" name="address" id="address" placeholder="ex) 경기도 수원시 팔달구" th:field="*{address}">
+                    <br>
+                    <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
                 </div>
                 <div class="join">
                     <h4>핸드폰</h4>
-                    <input type="email" name="phone" id="phone" placeholder="ex) 010-0000-0000">
+                    <input type="email" name="phone" id="phone" placeholder="ex) 010-0000-0000" th:field="*{phone}">
+                    <br>
+                    <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+                </div>
+                <div class="join">
+                    <h4>이메일</h4>
+                    <input type="email" name="email" id="email" placeholder="ex) aaa@naver.com" th:field="*{email}">
+                    <br>
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                </div>
+                    -->
                 </div>
             </div>
 
@@ -51,7 +165,7 @@
 
 
             <div class="home">
-                <a href="">Home</a>
+                <a href="main">Home</a>
             </div>
         </div>
 
@@ -61,7 +175,7 @@
 <style>
 h4{
 vertical-align: middle;
-text-align:right;
+text-align:center;
 margin-top: 20px;
 }
 * {
@@ -87,6 +201,7 @@ li {
   align-items: center;
   justify-content: center;
   background: none;
+  background-color: #fff7e6;
 }
 
 .login {
@@ -104,6 +219,17 @@ li {
   flex-direction: row;
   vertical-align: middle;
 
+}
+.join th{
+width: 100px;
+}
+.joinerror{
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  text-align:center;
+  font-size: 10px;
+  color:red;
 }
 
 h2 {
@@ -177,7 +303,7 @@ h2 {
 
 .submit {
   margin-top: 50px;
-  width: 80%;
+  width: 60%;
 }
 .submit input {
   width: 100%;
